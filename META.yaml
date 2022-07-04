@@ -1,0 +1,17 @@
+---
+author: gnulou@scriptdogg.com
+build: null
+copyright: Copyright ScriptDogg Inc.
+depends:
+  --libyaml-perl
+  --libjson-pp-perl
+  --libtest-simple-perl
+description: Perl-Tk Front-end for ScriptDogg
+license:
+  description: GNU GENERAL PUBLIC LICENSE VERSION 2
+  file: LICENSE.md
+  title: GPLv2
+name: AlphaDogg
+version:
+  name: TorontoPackMac
+  number: 0000

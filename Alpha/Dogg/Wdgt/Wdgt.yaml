@@ -1,0 +1,42 @@
+---
+git:
+  git_push:
+    arg:
+      --Origin
+      --Message
+    script" : "Dogg/Scripts/sh/_git_pull.sh"
+    wdgt:
+      Label:
+        PACK:
+          "-side": "top"
+          "-anchor": "w"
+        TRAIT:
+          "-bg": "#565656"
+          "-foreground": "#FFDE5B"
+          "-text": "Origin"
+          "-font": "arial 14 normal"
+      BrowseEntry:
+        PACK:
+          "-side": "top"
+          "-anchor": "w"
+        TRAIT:
+          "-font": "arial 14 normal"
+      Label:
+        PACK:
+          "-side": "top"
+          "-anchor": "w"
+        TRAIT:
+          "-bg": "#565656"
+          "-foreground": "#FFDE5B"
+          "-text": "Commit Message"
+          "-font": "arial 14 normal"
+      Text:
+        PACK:
+          "-side": "top"
+          "-anchor": "w"
+        TRAIT:
+          "-bg": "#FFDE5B"
+          "-foreground": "#565656"
+          "-font": "arial 14 normal"
+          "-width": 40
+          "-height": 10
