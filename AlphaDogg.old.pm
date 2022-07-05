@@ -4,7 +4,7 @@ use strict;
 use warnings;
 ################
 my $author = 'gnulou@scriptdogg.com';
-package Dogg
+package AlphaDogg
 {
   use Tk;
   use Tk::BrowseEntry;

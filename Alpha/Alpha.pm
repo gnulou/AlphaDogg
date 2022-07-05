@@ -11,10 +11,10 @@ package Alpha
 		my ($class, $STUFF) = @_;
 		my $self = bless
 		{
-			BODY	=>	$STUFF->{$STUFF->{name}}->{wdgt}->{BODY},
-			DOGG 	=> 	$STUFF,
+			BODY	  =>	$STUFF->{$STUFF->{name}}->{wdgt}->{BODY},
+			DOGG    => 	$STUFF,
 			HEADER 	=> 	$STUFF->{$STUFF->{name}}->{wdgt}->{HEADER},
-			MAIN 	=>	MainWindow->new,
+			MAIN 	  =>	MainWindow->new,
 			WINDOW 	=> 	$STUFF->{$STUFF->{name}}->{wdgt}->{WINDOW},
 			WRAPPER => 	$STUFF->{$STUFF->{name}}->{wdgt}->{WRAPPER}
 		}, $class;
