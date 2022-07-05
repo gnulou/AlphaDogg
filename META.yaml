@@ -1,11 +1,12 @@
 ---
 author: gnulou@scriptdogg.com
 build: null
+confile: Dogg/Conf/Conf.yaml
 copyright: Copyright ScriptDogg Inc.
 depends:
-  --libyaml-perl
-  --libjson-pp-perl
-  --libtest-simple-perl
+  - libyaml-perl
+  - libjson-pp-perl
+  - libtest-simple-perl
 description: Perl-Tk Front-end for ScriptDogg
 license:
   description: GNU GENERAL PUBLIC LICENSE VERSION 2
@@ -15,3 +16,5 @@ name: AlphaDogg
 version:
   name: TorontoPackMac
   number: 0000
+wdgtfile: Dogg/Wdgt/Wdgt.yaml
+wndwfile: Dogg/Wndw/Wndw.yaml

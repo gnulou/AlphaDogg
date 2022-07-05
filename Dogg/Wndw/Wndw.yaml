@@ -33,7 +33,7 @@ HEADER:
             "-side": top
           TRAIT:
             "-bg": "#002961"
-            "-fg": "#FFDE5B",
+            "-fg": "#FFDE5B"
             "-font": arial 12 bold
             "-label": Select a Server
             "-relief": raised
@@ -41,8 +41,8 @@ BODY:
   FRAME:
     Frame:
       PACK:
-        "-padx": 5,
-        "-pady": 5,
+        "-padx": 5
+        "-pady": 5
         "-side": right
         "-fill": both
         "-expand": 1

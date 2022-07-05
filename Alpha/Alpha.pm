@@ -9,36 +9,13 @@ package Alpha
   sub new
 	{
 		my ($class, $STUFF) = @_;
-		my $self = bless
-		{
-			BODY	  =>	$STUFF->{$STUFF->{name}}->{wdgt}->{BODY},
-			DOGG    => 	$STUFF,
-			HEADER 	=> 	$STUFF->{$STUFF->{name}}->{wdgt}->{HEADER},
-			MAIN 	  =>	MainWindow->new,
-			WINDOW 	=> 	$STUFF->{$STUFF->{name}}->{wdgt}->{WINDOW},
-			WRAPPER => 	$STUFF->{$STUFF->{name}}->{wdgt}->{WRAPPER}
-		}, $class;
+		my $self = bless $STUFF, $class;
+      $self->WINDOW_MAIN;
+      $self->WINDOW_HEADER;
+      $self->WINDOW_BODY;
 		return $self;
 	}
-	sub LOAD_DOGG
-	{
-		my ($self) = @_;
-		  $self = WINDOW_MAIN($self);
-		  $self = WINDOW_HEADER($self);
-      $self = WINDOW_BODY($self);
 
-		if($self->{DOGG}->{name} eq 'scriptDogg')
-		{
-			#use lib 'ScriptDogg/';
-			#use ScriptDogg;
-			#$self = ScriptDogg->new($self);
-			#$self->CONFIGURE_HEADER;
-			#$self->CONFIGURE_BODY;
-		}
-		else
-      { print "Dogg name ".$self->{DOGG}->{name}."is not supported.\n"; }
-    return $self;
-	}
 	sub WINDOW_MAIN
 	{
 		my ($STUFF) = @_;
@@ -88,13 +65,10 @@ package Alpha
 		my ($self) 	= @_;
 		my ($widget, $geom, $new_window, @traits, @geo);
 		while(my ($key, $value) = each %{$self})
-		{
-			unless(ref $key)
-			{
-				$widget = $key;
+		{ unless(ref $key)
+			{ $widget = $key;
 				while(my ($keys, $values) = each %{$value})
-				{
-					if($keys eq 'TRAIT')
+				{ if($keys eq 'TRAIT')
             { @traits = &trait_CONFIGURE($values); }
 					elsif($keys eq 'PACK')
 					  { $geom = $keys; @geo = &trait_CONFIGURE($values); }
