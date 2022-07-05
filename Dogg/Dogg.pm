@@ -6,56 +6,21 @@ use warnings;
 my $author = 'gnulou@scriptdogg.com';
 package Dogg
 {
-  use Tk;
-  use Tk::BrowseEntry;
-  use Tk::LabFrame;
-  use lib 'Alpha/';
-  use lib 'Dogg/';
-  use Alpha;
-  use Dogg;
-
   sub new
 	{
     my ( $class, $STUFF ) = @_;
-    my ( $WNDW_WDGT ) =
-		  { id => time, name	=> $class };
-    $WNDW_WDGT->{ BODY } = $ALPHDGG->CONFIGURE_BODY;
-      DOGG	=>	$STUFF->{DOGG},
-      HEADER	=>	$ALPHDGG->CONFIGURE_HEADER,
-      MAIN	=>	MainWindow->new,
-      PAGE	=>	$STUFF->{PAGE}	//	undef,
-      WINDOW	=>	$STUFF->{WINDOW},
-      WRAPPER =>	$STUFF->{WRAPPER}
-    };
-
-    my ($self) = bless _load($STUFF), $class;
+    my ($self) = bless $STUFF, $class;
     return $self;
   }
 
-  sub _load { return Dogg->new(@_); }
-
-  sub DISPLAY
+  sub CONFIGURE_HEADER
   {
     my ($self) = @_;
-		  $self->ALPHADOGG_MAIN;
-      $self->ALPHADOGG_LOOP;
+      $self = SELECT_SERVERS($self);
+      $self = PAGE_BUTTONS($self);
     return $self;
   }
-
-  sub ALPHADOGG_MAIN { return Alpha->new(@_); }
-
-  sub ALPHADOGG_LOOP { MainLoop; }
-
 # ---
-
-sub CONFIGURE_HEADER
-{
-  my ($self) = @_;
-    $self = SELECT_SERVERS($self);
-    $self = PAGE_BUTTONS($self);
-  return $self;
-}
-
 sub SELECT_SERVERS
 {
   my ($self) = @_;

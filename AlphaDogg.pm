@@ -49,7 +49,7 @@ package AlphaDogg
   sub LOAD_MAIN_WDGT_FROM_FILE
   {
     my ($self) = @_;
-      $self->{wdgt} = LoadFile( $self->{ meta }->{ wdgtfile } );
+      $self->{wdgt} = LoadFile( $self->{ path }.$self->{ meta }->{ wdgtfile } );
     return $self;
   }
 
@@ -74,11 +74,16 @@ package AlphaDogg
     use Alpha;
     my ( $self ) = @_;
       $self->LOAD_MAIN_WNDW_FROM_FILE;
-      $self->{ mWNDW } = Alpha->new($self->{ wndw });
+      $self->{ mWNDW } = Alpha->new( $self->{ wndw } );
       $self->{ mWNDW }->{MAIN} =	MainWindow->new;
       $self->{ mWNDW }->WINDOW_MAIN;
       $self->{ mWNDW }->WINDOW_HEADER;
       $self->{ mWNDW }->WINDOW_BODY;
+
+      $self->LOAD_MAIN_WDGT_FROM_FILE;
+    use Dogg;
+      $self->{ mWDGT } = Dogg->new( $self->{ wdgt } );
+
       $self->MAIN_LOOP;
   }
 
