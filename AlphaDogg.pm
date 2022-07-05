@@ -31,12 +31,12 @@ package AlphaDogg
 		return if ${^GLOBAL_PHASE} eq 'DESTRUCT';
 		if ($self->{ meta })
 		  { DumpFile( $self->{ file }, $self->{meta} ); }
-    if ( $self->{ wndw } )
-      { DumpFile( $self->{ path }.$self->{ meta }->{ wndwfile }, $self->{ wndw } ); }
-    if ( $self->{ wdgt } )
-        { DumpFile( $self->{ path }.$self->{ meta }->{ wdgtfile }, $self->{ wdgt } ); }
-    if ( $self->{ conf } )
-        { DumpFile( $self->{ path }.$self->{ meta }->{ confile }, $self->{ conf } ); }
+    #if ( $self->{ wndw } )
+    #  { DumpFile( $self->{ path }.$self->{ meta }->{ wndwfile }, $self->{ wndw } ); }
+    #if ( $self->{ wdgt } )
+    #    { DumpFile( $self->{ path }.$self->{ meta }->{ wdgtfile }, $self->{ wdgt } ); }
+    #if ( $self->{ conf } )
+    #    { DumpFile( $self->{ path }.$self->{ meta }->{ confile }, $self->{ conf } ); }
 	}
 
   sub LOAD_MAIN_WNDW_FROM_FILE
@@ -78,7 +78,8 @@ package AlphaDogg
       $self->{ mWINDOW }->{MAIN} =	MainWindow->new;
 
       $self->{ mWINDOW }->WINDOW_MAIN;
-
+      #$self->{ mHEADER } =
+      #$self->{ mWINDOW }->WINDOW_HEADER;
       $self->MAIN_LOOP;
   }
 

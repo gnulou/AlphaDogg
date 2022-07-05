@@ -18,21 +18,22 @@ package Alpha
 
 	sub WINDOW_MAIN
 	{
-		my ($STUFF) = @_;
-		$STUFF = &CONFIGURE_MAIN( $STUFF );
-		$STUFF->{WRAPPER} = &WIDGETS
-      ( $STUFF->{MAIN}, $STUFF->{WRAPPER} );
-		return $STUFF;
+		my ($self) = @_;
+		$self = &CONFIGURE_MAIN( $self );
+		$self->{WRAPPER} = &WIDGETS
+      ( $self->{MAIN}, $self->{WRAPPER} );
+
+    return $self;
 	}
 	sub WINDOW_HEADER
 	{
-		my ($STUFF) = @_;
-		$STUFF->{HEADER}->{FRAME} = &WIDGETS
-      ( $STUFF->{WRAPPER}, $STUFF->{HEADER}->{FRAME} );
+		my ($self) = @_;
+		$self->{HEADER}->{FRAME} = &WIDGETS
+      ( $self->{WRAPPER}, $self->{HEADER}->{FRAME} );
 
-		$STUFF->{HEADER}->{LABEL} = &WIDGETS
-      ( $STUFF->{HEADER}->{FRAME}, $STUFF->{HEADER}->{LABEL} );
-		return $STUFF;
+		$self->{HEADER}->{LABEL} = &WIDGETS
+      ( $self->{HEADER}->{FRAME}, $self->{HEADER}->{LABEL} );
+		return $self;
 	}
 	sub WINDOW_BODY
 	{
