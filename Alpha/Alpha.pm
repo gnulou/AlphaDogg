@@ -10,9 +10,9 @@ package Alpha
 	{
 		my ($class, $STUFF) = @_;
 		my $self = bless $STUFF, $class;
-      $self->WINDOW_MAIN;
-      $self->WINDOW_HEADER;
-      $self->WINDOW_BODY;
+    #  $self->WINDOW_MAIN;
+    #  $self->WINDOW_HEADER;
+    #  $self->WINDOW_BODY;
 		return $self;
 	}
 

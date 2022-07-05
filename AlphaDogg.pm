@@ -43,7 +43,6 @@ package AlphaDogg
   {
     my ($self) = @_;
       $self->{wndw} = LoadFile( $self->{ path }.$self->{ meta }->{ wndwfile } );
-      $self->{wndw}->{MAIN} =	MainWindow->new;
     return $self;
   }
 
@@ -75,8 +74,10 @@ package AlphaDogg
     use Alpha;
     my ( $self ) = @_;
       $self->LOAD_MAIN_WNDW_FROM_FILE;
+      $self->{ mWINDOW } = Alpha->new($self->{ wndw });
+      $self->{ mWINDOW }->{MAIN} =	MainWindow->new;
 
-      $self->{ wndw } = Alpha->new($self->{ wndw });
+      $self->{ mWINDOW }->WINDOW_MAIN;
 
       $self->MAIN_LOOP;
   }
