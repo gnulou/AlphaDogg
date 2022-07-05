@@ -74,12 +74,11 @@ package AlphaDogg
     use Alpha;
     my ( $self ) = @_;
       $self->LOAD_MAIN_WNDW_FROM_FILE;
-      $self->{ mWINDOW } = Alpha->new($self->{ wndw });
-      $self->{ mWINDOW }->{MAIN} =	MainWindow->new;
-
-      $self->{ mWINDOW }->WINDOW_MAIN;
-      #$self->{ mHEADER } =
-      #$self->{ mWINDOW }->WINDOW_HEADER;
+      $self->{ mWNDW } = Alpha->new($self->{ wndw });
+      $self->{ mWNDW }->{MAIN} =	MainWindow->new;
+      $self->{ mWNDW }->WINDOW_MAIN;
+      $self->{ mWNDW }->WINDOW_HEADER;
+      $self->{ mWNDW }->WINDOW_BODY;
       $self->MAIN_LOOP;
   }
 

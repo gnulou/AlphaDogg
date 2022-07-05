@@ -25,18 +25,18 @@ HEADER:
         -bg: "#400040"
         -fg: "#D25BFF"
         -relief: raised
-      LABEL:
-        LabFrame:
-          PACK:
-            -padx: 3
-            -pady: 3
-            -side: top
-          TRAIT:
-            -bg: "#002961"
-            -fg: "#FFDE5B"
-            -font: arial 12 bold
-            -label: Select a Server
-            -relief: raised
+  LABEL:
+    LabFrame:
+      PACK:
+        -padx: 3
+        -pady: 3
+        -side: top
+      TRAIT:
+        -bg: "#002961"
+        -fg: "#FFDE5B"
+        -font: arial 12 bold
+        -label: Select a Server
+        -relief: raised
 BODY:
   FRAME:
     Frame:

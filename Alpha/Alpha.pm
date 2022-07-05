@@ -10,29 +10,25 @@ package Alpha
 	{
 		my ($class, $STUFF) = @_;
 		my $self = bless $STUFF, $class;
-    #  $self->WINDOW_MAIN;
-    #  $self->WINDOW_HEADER;
-    #  $self->WINDOW_BODY;
 		return $self;
 	}
 
 	sub WINDOW_MAIN
 	{
-		my ($self) = @_;
+		my ( $self ) = @_;
 		$self = &CONFIGURE_MAIN( $self );
-		$self->{WRAPPER} = &WIDGETS
-      ( $self->{MAIN}, $self->{WRAPPER} );
-
+		$self->{ WRAPPER } = &WIDGETS
+      ( $self->{ MAIN }, $self->{ WRAPPER } );
     return $self;
 	}
 	sub WINDOW_HEADER
 	{
-		my ($self) = @_;
-		$self->{HEADER}->{FRAME} = &WIDGETS
-      ( $self->{WRAPPER}, $self->{HEADER}->{FRAME} );
+		my ( $self ) = @_;
+		$self->{ HEADER }->{ FRAME } = &WIDGETS
+      ( $self->{ WRAPPER }, $self->{ HEADER }->{ FRAME } );
 
-		$self->{HEADER}->{LABEL} = &WIDGETS
-      ( $self->{HEADER}->{FRAME}, $self->{HEADER}->{LABEL} );
+		$self->{ HEADER }->{ LABEL } = &WIDGETS
+      ( $self->{ HEADER }->{ FRAME }, $self->{ HEADER }->{ LABEL } );
 		return $self;
 	}
 	sub WINDOW_BODY
