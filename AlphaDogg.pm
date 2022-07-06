@@ -56,7 +56,7 @@ package AlphaDogg
   sub LOAD_MAIN_CONF_FROM_FILE
   {
     my ($self) = @_;
-      $self->{conf} = LoadFile( $self->{ meta }->{ confile } );
+      $self->{ conf } = LoadFile( $self->{ path }.$self->{ meta }->{ confile } );
     return $self;
   }
 
@@ -71,19 +71,21 @@ package AlphaDogg
 
   sub MAIN_WNDW
   {
-    use Alpha;
     my ( $self ) = @_;
       $self->LOAD_MAIN_WNDW_FROM_FILE;
+    use Alpha;
       $self->{ mWNDW } = Alpha->new( $self->{ wndw } );
-      $self->{ mWNDW }->{MAIN} =	MainWindow->new;
+      $self->{ mWNDW }->{ MAIN } =	MainWindow->new;
       $self->{ mWNDW }->WINDOW_MAIN;
       $self->{ mWNDW }->WINDOW_HEADER;
       $self->{ mWNDW }->WINDOW_BODY;
-
       $self->LOAD_MAIN_WDGT_FROM_FILE;
+      $self->LOAD_MAIN_CONF_FROM_FILE;
+      #$self->{ mWNDW }
     use Dogg;
-      $self->{ mWDGT } = Dogg->new( $self->{ wdgt } );
-
+      $self->{ mWDGT } = Dogg->new( $self->{ mWNDW } );
+      $self->{ mWDGT }->CONFIGURE_HEADER;
+      $self->{ mWDGT }->CONFIGURE_BODY;
       $self->MAIN_LOOP;
   }
 
