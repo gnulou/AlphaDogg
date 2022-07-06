@@ -49,14 +49,14 @@ package AlphaDogg
   sub LOAD_MAIN_WDGT_FROM_FILE
   {
     my ($self) = @_;
-      $self->{wdgt} = LoadFile( $self->{ path }.$self->{ meta }->{ wdgtfile } );
+      $self->{ DOGG }->{ wdgt } = LoadFile( $self->{ path }.$self->{ meta }->{ wdgtfile } );
     return $self;
   }
 
   sub LOAD_MAIN_CONF_FROM_FILE
   {
     my ($self) = @_;
-      $self->{ conf } = LoadFile( $self->{ path }.$self->{ meta }->{ confile } );
+      $self->{ DOGG }->{ conf } = LoadFile( $self->{ path }.$self->{ meta }->{ confile } );
     return $self;
   }
 
@@ -81,7 +81,7 @@ package AlphaDogg
       $self->{ mWNDW }->WINDOW_BODY;
       $self->LOAD_MAIN_WDGT_FROM_FILE;
       $self->LOAD_MAIN_CONF_FROM_FILE;
-      #$self->{ mWNDW }
+      $self->{ mWNDW }->{ DOGG } = $self->{ DOGG };
     use Dogg;
       $self->{ mWDGT } = Dogg->new( $self->{ mWNDW } );
       $self->{ mWDGT }->CONFIGURE_HEADER;

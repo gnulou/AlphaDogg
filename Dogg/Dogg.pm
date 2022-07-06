@@ -27,7 +27,7 @@ sub SELECT_SERVERS
   my $select_all = 0;
   $self->{DOGG}->{TRANSPORTS} = [];
   my %checkboxes; my $row = 1; my $column = 0;
-  my $servs = $self->{DOGG}->{data}->{containers};
+  my $servs = $self->{DOGG}->{ conf }->{ classes };
   my $fields = $self->{HEADER}->{LABEL}->Frame(-bg=>'#565656')->pack();
   foreach my $field (@{$servs})
   {
@@ -61,7 +61,7 @@ sub SELECT_SERVERS
 sub PAGE_BUTTONS
 {
   my ($self) = @_;
-  my $clss = $self->{DOGG}->{data}->{classes};
+  my $clss = $self->{ DOGG }->{ conf }->{ roles };
 
   $self->{HEADER}->{ELEMENT} =
     $self->{HEADER}->{FRAME}->LabFrame
@@ -105,7 +105,7 @@ sub MAIN_CONTENT
   sub GET_MAIN_CONTENT
   {
     my ($self) = @_;
-    return $self->{DOGG}->{$self->{DOGG}->{name}}->{page}->{$self->{PAGE}->{name}};
+    return $self->{ DOGG }->{ wdgt }->{$self->{ PAGE }->{ name }};
   }
 
 sub SET_MAIN_CONTENT
@@ -171,12 +171,15 @@ sub SELECT_SCRIPT
       $self->{BODY}->{ELEMENTS}->{ENTRIES} =
         $self->{BODY}->{ELEMENTS}->{ACTION}->Frame
           ( -bg=>'#565656' )->pack( -anchor=>'nw', -pady => 15, -padx => 15 );
-
+      print $self->{DOGG}->{action}." --wurps.\n";
       while (my ($keys, $values) =
         each @{$self->{PAGE}->{content}->{$self->{DOGG}->{action}}->{wdgt}})
         {
           while (my ($key, $value) =  each %{$values})
           {
+            print "$key --\n";
+
+              print "$value --\n";
             my @p = %{$value->{PACK}};
             my @t = %{$value->{TRAIT}};
             $self->{BODY}->{ELEMENTS}->{ENTRIES}->$key(@t)->pack(@p);
@@ -200,11 +203,11 @@ sub SELECT_SCRIPT
 
       $self->{BODY}->{ELEMENTS}->{BUTTONS}->Button
         ( -foreground=>'#565656', -bg=>"#FFDE5B", -text => 'Cancel',
-        #	-command =>
-        #		sub
-        #		{
-        #			system("bash scripts/Dogg 'main_".lc($lfdummy)."' '".$alias."' '".$scrpt."'");
-        #		}
+        	-command =>
+        		sub
+        		{
+        		#	system("bash scripts/Dogg 'main_".lc($lfdummy)."' '".$alias."' '".$scrpt."'");
+        		}
         )->pack( -side => 'right', -padx => 10 );
     return $self;
   }

@@ -1,71 +1,83 @@
 ---
 group:
-  - Label:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -bg: "#565656"
-      -foreground: "#FFDE5B"
-      -text: "Group Name"
-      -font: "arial 14 normal"
-  - BrowseEntry:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -font: "arial 14 normal"
-  - Label:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -bg: "#565656"
-      -foreground: "#FFDE5B"
-      -text: "Commit Message"
-      -font: "arial 14 normal"
-  - Text:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -bg: "#FFDE5B"
-      -foreground: "#565656"
-      -font: "arial 14 normal"
-      -width: 40
-      -height: 10
+  group-action:
+    arg:
+      - arg1
+    script: bin/sh/scriptdogg.sh
+    wdgt:
+    - Label:
+        PACK:
+          -side: "top"
+          -anchor: "w"
+        TRAIT:
+          -bg: "#565656"
+          -foreground: "#FFDE5B"
+          -text: "Group Name"
+          -font: "arial 14 normal"
+    - BrowseEntry:
+        PACK:
+          -side: "top"
+          -anchor: "w"
+        TRAIT:
+          -font: "arial 14 normal"
+    - Label:
+        PACK:
+          -side: "top"
+          -anchor: "w"
+        TRAIT:
+          -bg: "#565656"
+          -foreground: "#FFDE5B"
+          -text: "Something Else here for Group"
+          -font: "arial 14 normal"
+    - Text:
+        PACK:
+          -side: "top"
+          -anchor: "w"
+        TRAIT:
+          -bg: "#FFDE5B"
+          -foreground: "#565656"
+          -font: "arial 14 normal"
+          -width: 40
+          -height: 10
 tagg:
-  - Label:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -bg: "#565656"
-      -foreground: "#FFDE5B"
-      -text: "Tagg Name"
-      -font: "arial 14 normal"
-  - BrowseEntry:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -font: "arial 14 normal"
-  - Label:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -bg: "#565656"
-      -foreground: "#FFDE5B"
-      -text: "Commit Message"
-      -font: "arial 14 normal"
-  - Text:
-    PACK:
-      -side: "top"
-      -anchor: "w"
-    TRAIT:
-      -bg: "#FFDE5B"
-      -foreground: "#565656"
-      -font: "arial 14 normal"
-      -width: 40
-      -height: 10
+  tagg-action:
+    arg:
+      - arg1
+      - arg2
+      - arg3
+    script: bin/pl/scriptdogg.pl
+    wdgt:
+      - Label:
+          PACK:
+            -side: "top"
+            -anchor: "w"
+          TRAIT:
+            -bg: "#565656"
+            -foreground: "#FFDE5B"
+            -text: "Tagg Name"
+            -font: "arial 14 normal"
+      - BrowseEntry:
+          PACK:
+            -side: "top"
+            -anchor: "w"
+          TRAIT:
+            -font: "arial 14 normal"
+      - Label:
+          PACK:
+            -side: "top"
+            -anchor: "w"
+          TRAIT:
+            -bg: "#565656"
+            -foreground: "#FFDE5B"
+            -text: "Commit Message"
+            -font: "arial 14 normal"
+      - Text:
+          PACK:
+            -side: "top"
+            -anchor: "w"
+          TRAIT:
+            -bg: "#FFDE5B"
+            -foreground: "#565656"
+            -font: "arial 14 normal"
+            -width: 40
+            -height: 10
