@@ -27,14 +27,14 @@ sub SELECT_SERVERS
   my $select_all = 0;
   $self->{DOGG}->{TRANSPORTS} = [];
   my %checkboxes; my $row = 1; my $column = 0;
-  my $servs = $self->{DOGG}->{ conf }->{ classes };
-  my $fields = $self->{HEADER}->{LABEL}->Frame(-bg=>'#565656')->pack();
+  my $servs = $self->{DOGG}->{ conf }->{ builds };
+  my $fields = $self->{HEADER}->{LABEL}->Frame(-bg=>'#1C1C1C')->pack();
   foreach my $field (@{$servs})
   {
     $checkboxes
     { fields}{$field} = $fields->Checkbutton
       ( -text => "$field", -font => "arial 11 bold",
-        -foreground=>"#FFDE5B", -bg=>'#1A1A1A',
+        -foreground=>"#565656", -bg=>'#1C1C1C',
         -command => sub { push @{$self->{DOGG}->{TRANSPORTS}},$field; }
       )->grid
         ( -row => $row, -column => $column++, -ipadx => '5', -ipady => '5',
@@ -44,7 +44,7 @@ sub SELECT_SERVERS
 
   $checkboxes{all} = $fields ->Checkbutton
     ( -text => "Select All", -font => "arial 11 bold",
-      -foreground=>"#565656", -bg=>'#FFDE5B',
+      -foreground=>"#565656", -bg=>'#151624',
       -command => sub
         {
           for ( values %{$checkboxes{fields}} )
@@ -61,18 +61,18 @@ sub SELECT_SERVERS
 sub PAGE_BUTTONS
 {
   my ($self) = @_;
-  my $clss = $self->{ DOGG }->{ conf }->{ roles };
+  my $clss = $self->{ DOGG }->{ conf }->{ classes };
 
   $self->{HEADER}->{ELEMENT} =
     $self->{HEADER}->{FRAME}->LabFrame
-      ( -bg=>'#565656', -fg=>'#FFDE5B', -label=>'Action Classes'
+      ( -bg=>'#1C1C1C', -fg=>'#565656', -label=>'Action Classes'
       )->pack( -fill=>'x' );
 
   foreach my $but (@{$clss})
   {
     $self->{HEADER}->{ELEMENT}->Button
     ( -font => "arial 16 bold", -foreground=>'#565656',
-      -bg=>"#FFDE5B", -text => $but,
+      -bg=>"#1C1C1C", -text => ucfirst$but,
       -command => sub
         {
           $self->{PAGE}->{name} = $but;
@@ -125,9 +125,9 @@ sub SELECT_SCRIPT
 
   $self->{BODY}->{ELEMENTS}->{SCRIPTS} =
     $self->{BODY}->{FRAME}->LabFrame
-      ( -bg=>'#565656',
-        -foreground=>"#FFDE5B",
-        -label => "Select an Action",
+      ( -bg=>'#1C1C1C',
+        -foreground=>"#565656",
+        -label => "---",
       )->pack( -side => "top" , -fill => "x" );
 
   my $row = 1;
@@ -135,8 +135,8 @@ sub SELECT_SCRIPT
   foreach my $value (@{$scrpts})
   {
     $self->{BODY}->{ELEMENTS}->{SCRIPTS}->Radiobutton
-    ( -font => "arial 12 bold", -foreground=>"#FFDE5B",
-      -bg=>'#565656', -text => ucfirst("$value") , -value => $value,
+    ( -font => "arial 12 bold", -foreground=>"#565656",
+      -bg=>'#1C1C1C', -text => ucfirst("$value") , -value => $value,
       -command => sub
         {
           $self->{DOGG}->{action} = $value;
@@ -164,22 +164,18 @@ sub SELECT_SCRIPT
 
     $self->{BODY}->{ELEMENTS}->{ACTION} =
       $self->{BODY}->{FRAME}->LabFrame
-        ( -bg=>'#565656', -foreground=>"#FFDE5B",
+        ( -bg=>'#1C1C1C', -foreground=>"#565656",
           -label => $self->{DOGG}->{action}, -font => "arial 18 bold"
         )->pack( -side => "top", -fill => "x");
 
       $self->{BODY}->{ELEMENTS}->{ENTRIES} =
         $self->{BODY}->{ELEMENTS}->{ACTION}->Frame
-          ( -bg=>'#565656' )->pack( -anchor=>'nw', -pady => 15, -padx => 15 );
-      print $self->{DOGG}->{action}." --wurps.\n";
+          ( -bg=>'#1C1C1C' )->pack( -anchor=>'nw', -pady => 15, -padx => 15 );
       while (my ($keys, $values) =
         each @{$self->{PAGE}->{content}->{$self->{DOGG}->{action}}->{wdgt}})
         {
           while (my ($key, $value) =  each %{$values})
           {
-            print "$key --\n";
-
-              print "$value --\n";
             my @p = %{$value->{PACK}};
             my @t = %{$value->{TRAIT}};
             $self->{BODY}->{ELEMENTS}->{ENTRIES}->$key(@t)->pack(@p);
@@ -188,24 +184,25 @@ sub SELECT_SCRIPT
 
       $self->{BODY}->{ELEMENTS}->{BUTTONS} =
         $self->{BODY}->{ELEMENTS}->{ACTION}->Frame
-          ( -bg=>'#565656')->pack( -side=>'top', -fill=>'x' );
+          ( -bg=>'#1C1C1C')->pack( -side=>'top', -fill=>'x' );
 
       $self->{BODY}->{ELEMENTS}->{BUTTONS}->Button
-      ( -foreground=>'#565656', -bg=>"#FFDE5B", -text => 'Run Action',
+      ( -foreground=>'#1C1C1C', -bg=>"#565656", -text => 'Run Action',
         -command =>
           sub
           {
-            my $s = $self->{PAGE}->{content}->{$self->{DOGG}->{action}}->{scrpt};
+            my $s = $self->{PAGE}->{content}->{$self->{DOGG}->{action}}->{script};
             print $self->{DOGG}->{action}." ".$s." ".@{$self->{DOGG}->{TRANSPORTS}};
             #system("bash scripts/Dogg 'main_".lc($lfdummy)."' '".$alias."' '".$scrpt."'");
           }
       )->pack( -side=>'right' );
 
       $self->{BODY}->{ELEMENTS}->{BUTTONS}->Button
-        ( -foreground=>'#565656', -bg=>"#FFDE5B", -text => 'Cancel',
+        ( -foreground=>'#1C1C1C', -bg=>"#565656", -text => 'Cancel',
         	-command =>
         		sub
         		{
+              $self = MAIN_CONTENT($self);
         		#	system("bash scripts/Dogg 'main_".lc($lfdummy)."' '".$alias."' '".$scrpt."'");
         		}
         )->pack( -side => 'right', -padx => 10 );
@@ -217,7 +214,7 @@ sub SELECT_SCRIPT
     my ($self) = @_;
     $self->{BODY}->{ELEMENTS}->{ACTION} =
       $self->{BODY}->{FRAME}->LabFrame
-        ( -bg=>'#565656', -foreground=>"#FFDE5B",
+        ( -bg=>'#1C1C1C', -foreground=>"#565656",
           -label =>"Action Entries", -font => "arial 18 bold"
         )->pack( -side => "top", -fill => "x" );
 

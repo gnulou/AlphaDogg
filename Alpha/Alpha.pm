@@ -1,9 +1,9 @@
 #! /usr/bin/perl
-################
+#################
+# Notes at bottom
 use strict;
 use warnings;
-################
-my $author = 'gnulou@scriptdogg.com';
+#################
 package Alpha
 {
   sub new
@@ -87,5 +87,6 @@ package Alpha
     { return { %{ shift() } }; }
 }1;
 =pod
-
+# Copyleft
+my $author = 'gnulou@scriptdogg.com';
 =cut

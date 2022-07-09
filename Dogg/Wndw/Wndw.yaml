@@ -1,4 +1,8 @@
 ---
+parameters:
+  bckgrnd: &bckgrnd "#1C1C1C"
+  frgrnd: &frgrnd "$565656"
+  hdrbckgrnd: &hdrbckgrnd "#151624"
 WINDOW:
   geometry: 1100x768+0+0
   title: ScriptDogg
@@ -10,8 +14,8 @@ WRAPPER:
       -fill: both
       -expand: 1
     TRAIT:
-      -bg: "#FFDE5B"
-      -fg: "#002961"
+      -bg: *bckgrnd
+      -fg: *frgrnd
       -relief: raised
 HEADER:
   FRAME:
@@ -22,7 +26,7 @@ HEADER:
         -side: "left"
         -fill: "y"
       TRAIT:
-        -bg: "#400040"
+        -bg: "#151624"
         -fg: "#D25BFF"
         -relief: raised
   LABEL:
@@ -32,10 +36,10 @@ HEADER:
         -pady: 3
         -side: top
       TRAIT:
-        -bg: "#002961"
-        -fg: "#FFDE5B"
+        -bg: "#1C1C1C"
+        -fg: "#565656"
         -font: arial 12 bold
-        -label: Select a Server
+        -label: Environment
         -relief: raised
 BODY:
   FRAME:
@@ -47,6 +51,6 @@ BODY:
         -fill: both
         -expand: 1
       TRAIT:
-        -bg: "#565656"
-        -fg: "#D25BFF"
+        -bg: "#1C1C1C"
+        -fg: "#0000FF"
         -relief: raised

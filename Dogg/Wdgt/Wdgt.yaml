@@ -10,8 +10,8 @@ group:
           -side: "top"
           -anchor: "w"
         TRAIT:
-          -bg: "#565656"
-          -foreground: "#FFDE5B"
+          -foreground: "#565656"
+          -bg: "#1C1C1C"
           -text: "Group Name"
           -font: "arial 14 normal"
     - BrowseEntry:
@@ -20,13 +20,15 @@ group:
           -anchor: "w"
         TRAIT:
           -font: "arial 14 normal"
+          -bg: "#151624"
+          -foreground: "#565656"
     - Label:
         PACK:
           -side: "top"
           -anchor: "w"
         TRAIT:
-          -bg: "#565656"
-          -foreground: "#FFDE5B"
+          -bg: "#1C1C1C"
+          -foreground: "#565656"
           -text: "Something Else here for Group"
           -font: "arial 14 normal"
     - Text:
@@ -34,7 +36,7 @@ group:
           -side: "top"
           -anchor: "w"
         TRAIT:
-          -bg: "#FFDE5B"
+          -bg: "#151624"
           -foreground: "#565656"
           -font: "arial 14 normal"
           -width: 40
@@ -52,8 +54,8 @@ tagg:
             -side: "top"
             -anchor: "w"
           TRAIT:
-            -bg: "#565656"
-            -foreground: "#FFDE5B"
+            -bg: "#1C1C1C"
+            -foreground: "#565656"
             -text: "Tagg Name"
             -font: "arial 14 normal"
       - BrowseEntry:
@@ -62,21 +64,23 @@ tagg:
             -anchor: "w"
           TRAIT:
             -font: "arial 14 normal"
+            -bg: "#151624"
+            -foreground: "#565656"
       - Label:
           PACK:
             -side: "top"
             -anchor: "w"
           TRAIT:
-            -bg: "#565656"
-            -foreground: "#FFDE5B"
-            -text: "Commit Message"
+            -bg: "#1C1C1C"
+            -foreground: "#565656"
+            -text: "Tagg Message"
             -font: "arial 14 normal"
       - Text:
           PACK:
             -side: "top"
             -anchor: "w"
           TRAIT:
-            -bg: "#FFDE5B"
+            -bg: "#151624"
             -foreground: "#565656"
             -font: "arial 14 normal"
             -width: 40
