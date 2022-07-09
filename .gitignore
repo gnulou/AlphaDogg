@@ -1,2 +1,3 @@
 # AlphaDogg .gitignore
 Dogg/Conf/*
+Dogg/App/*

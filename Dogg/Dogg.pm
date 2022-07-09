@@ -215,17 +215,17 @@ sub SELECT_SCRIPT
     $self->{BODY}->{ELEMENTS}->{ACTION} =
       $self->{BODY}->{FRAME}->LabFrame
         ( -bg=>'#1C1C1C', -foreground=>"#565656",
-          -label =>"Action Entries", -font => "arial 18 bold"
+          -label =>"Wdgts", -font => "arial 18 bold"
         )->pack( -side => "top", -fill => "x" );
 
     $self->{BODY}->{ELEMENTS}->{ENTRIES} =
       $self->{BODY}->{ELEMENTS}->{ACTION}->Frame
-        ( -bg=>'#565656' )->pack( -anchor=>'nw', -ipady=>10 );
+        ( -bg=>'#1C1C1C' )->pack( -anchor=>'nw', -ipady=>10 );
 
     $self->{BODY}->{ELEMENTS}->{ENTRIES}->Label
-      ( -bg=>'#565656', -foreground=>"#FFDE5B",
-        -text =>"Please Select an Action from the list above.",
-        -font => "arial 14 normal"
+      ( -bg=>'#1C1C1C', -foreground=>"#565656",
+        -text =>"ScriptDogg - A perl yamish hack on Tk",
+        -font => "arial 18 normal"
       )->pack( -side => "top", -anchor => "w" );
 
     return $self;
