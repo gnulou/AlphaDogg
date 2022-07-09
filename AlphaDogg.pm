@@ -38,6 +38,16 @@ package AlphaDogg
     #if ( $self->{ conf } )
     #    { DumpFile( $self->{ path }.$self->{ meta }->{ confile }, $self->{ conf } ); }
 	}
+  sub ALPHA_RUNNER
+  {
+
+  }
+
+  sub DOGGER_LOGGER
+  {
+    # File loader and logger
+
+  }
 
   sub LOAD_MAIN_WNDW_FROM_FILE
   {

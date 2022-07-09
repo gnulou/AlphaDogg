@@ -1,0 +1,37 @@
+---
+Label:
+  PACK:
+    -side: "top"
+    -anchor: "w"
+  TRAIT:
+    -bg: "#1C1C1C"
+    -foreground: "#565656"
+    -text: "Child"
+    -font: "arial 14 normal"
+BrowseEntry:
+  PACK:
+    -side: "top"
+    -anchor: "w"
+  TRAIT:
+    -font: "arial 14 normal"
+    -bg: "#151624"
+    -foreground: "#565656"
+Label:
+  PACK:
+    -side: "top"
+    -anchor: "w"
+  TRAIT:
+    -bg: "#1C1C1C"
+    -foreground: "#565656"
+    -text: "Data"
+    -font: "arial 14 normal"
+Text:
+  PACK:
+    -side: "top"
+    -anchor: "w"
+  TRAIT:
+    -bg: "#151624"
+    -foreground: "#565656"
+    -font: "arial 14 normal"
+    -width: 40
+    -height: 10
